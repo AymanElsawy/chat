@@ -1,0 +1,12 @@
+// styles-dark.scss
+$main-bg: #092635;
+$sub-bg: #1B4242;
+$main: #5C8374;
+$sub: #9EC8B9;
+$theme-colors: (
+  "main": $main,
+  "sub": $sub,
+  "main-bg": $main-bg,
+  "sub-bg": $sub-bg,
+);
+@import "../node_modules/bootstrap/scss/bootstrap.scss";

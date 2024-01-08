@@ -1,0 +1,12 @@
+// styles-light.scss
+$main-bg: #92C7CF;
+$sub-bg: #FBF9F1;
+$main: #AAD7D9;
+$sub: #92C7CF;
+$theme-colors: (
+  "main": $main,
+  "sub": $sub,
+  "main-bg": $main-bg,
+  "sub-bg": $sub-bg,
+);
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
