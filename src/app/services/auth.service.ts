@@ -37,6 +37,10 @@ export class AuthService {
     return this.http.get<User>(`${environment.api}/user/${id}`); // get user data
   }
 
+  getAllUsers() {
+    return this.http.get<User[]>(`${environment.api}/users`);
+  }
+
   signup(username:string,password:string,repeat_password:string) {
     return this.http.post<{ message: string, token: string }>(`${environment.api}/signup`, { username, password, repeat_password }).pipe(
       map(res => { // map the response

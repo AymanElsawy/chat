@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { User } from '../../model/user.interface';
 
 @Component({
   selector: 'app-chat',
@@ -9,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class ChatComponent {
 
+  @Input('userToChat') userToChat!: User;
 }

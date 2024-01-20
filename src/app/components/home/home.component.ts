@@ -15,6 +15,7 @@ import { User } from '../../model/user.interface';
 export class HomeComponent implements OnInit {
   darkMode: boolean = false;
   user = {} as User;
+  userToChat = {} as User;
   private AuthService = inject(AuthService);// inject auth service
   private theme = inject(ThemeService); // inject the theme service
 
@@ -30,6 +31,10 @@ export class HomeComponent implements OnInit {
 
   logout() {
     this.AuthService.logout(); // logout
-
+  }
+  chatWithUser(user: User) {
+    if (user) {
+      this.userToChat = user;
+    }
   }
 }

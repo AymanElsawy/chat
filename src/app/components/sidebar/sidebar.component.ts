@@ -1,5 +1,8 @@
-import { Component, Input, inject } from '@angular/core';
+import { AuthService } from './../../services/auth.service';
+import { Component, Input, Output, inject, EventEmitter } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
+import { User } from '../../model/user.interface';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -11,8 +14,18 @@ import { ThemeService } from '../../services/theme.service';
 export class SidebarComponent {
 
   @Input('name') name!: string; // name of the user
+  users!: User[];
+  @Output('user') user = new EventEmitter<User>();
 
   private theme = inject(ThemeService); // inject the theme service
+  private AuthService = inject(AuthService); // inject the auth service
+
+
+  ngOnInit() {
+    this.AuthService.getAllUsers().subscribe((users) => {
+      this.users = users;
+    })
+  }
 
   switchTheme(): void {
     if (this.theme.current === 'light') { // if current theme is light
@@ -20,5 +33,9 @@ export class SidebarComponent {
     } else {
       this.theme.current = 'light'; // change theme
     }
+  }
+
+  chatWithUser(user: User) {
+    this.user.emit(user);
   }
 }

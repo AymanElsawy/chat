@@ -1,11 +1,12 @@
-<div class="card bg-sub-bg text-sub">
+@if (userToChat.username) {
+  <div class="card bg-sub-bg text-sub">
   <div class="card-header">
     <img
       src="assets/images/user.webp"
       class="user-img rounded-5"
       alt="user-img"
     />
-    <strong class="ms-3">user name</strong>
+    <strong class="ms-3">{{userToChat.username}}</strong>
   </div>
   <div class="card-body overflow-scroll">
     <div>
@@ -32,3 +33,7 @@
     </form>
   </div>
 </div>
+
+}@else {
+  <p>start chat</p>
+}
