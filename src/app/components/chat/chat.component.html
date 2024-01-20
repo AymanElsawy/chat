@@ -1,14 +1,25 @@
 <div class="card bg-sub-bg text-sub">
   <div class="card-header">
-    <img src="assets/images/user.webp" class="user-img rounded-5" alt="user-img">
+    <img
+      src="assets/images/user.webp"
+      class="user-img rounded-5"
+      alt="user-img"
+    />
     <strong class="ms-3">user name</strong>
   </div>
-  <div class="card-body">
-
-    <p class="card-text">
-      Chat Area
-    </p>
-    <div class="card-footer text-body-secondary">
+  <div class="card-body overflow-scroll">
+    <div>
+      <img src="assets/images/user.webp" class="user-img rounded-5" alt="">
+      <p class="d-inline-block ms-1 card-text mb-0">last message</p>
+      <!-- <small class="text-muted">time</small> -->
+    </div>
+    <div class="text-end">
+      <p class="d-inline-block me-1 card-text mb-0">last message</p>
+       <img src="assets/images/user.webp" class="user-img rounded-5" alt="">
+    </div>
+  </div>
+  <div class="card-footer text-body-secondary">
+    <form action="">
       <input
         type="text"
         class="form-control"
@@ -17,6 +28,7 @@
         aria-describedby="helpId"
         placeholder=""
       />
-    </div>
+      <button class="btn btn-main mt-2 text-end">Send</button>
+    </form>
   </div>
 </div>

@@ -1,1 +1,55 @@
-<p>signup works!</p>
+<div class="container">
+  <div class="row">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="text-main">
+        <h2 class="text-main fw-bold text-capitalize text-center">signup</h2>
+        <p class="error text-center">{{ errorMessage }}</p>
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">&#64;</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              formControlName="username"
+              (keypress)="errorMessage = ''"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              id="password"
+              aria-describedby="helpId"
+              placeholder="password"
+              formControlName="password"
+              (keypress)="errorMessage = ''"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="repat_password"
+              id="repeat_password"
+              aria-describedby="helpId"
+              placeholder="repeat password"
+              formControlName="repeat_password"
+              (keypress)="errorMessage = ''"
+            />
+          </div>
+          <button class="btn btn-outline-main">signup</button>
+          <span class="text-main ms-3 text-end">
+            don't have account?
+            <a routerLink="/">login</a>
+          </span>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

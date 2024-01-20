@@ -1,3 +1,9 @@
-.user-img{
+.user-img {
   width: 50px;
+}
+.card {
+  height: 90vh;
+}
+.card-body {
+  height: 80vh;
 }
