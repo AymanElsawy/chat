@@ -14,15 +14,12 @@ import { User } from '../../model/user.interface';
 })
 export class HomeComponent implements OnInit {
   darkMode: boolean = false;
-  user = {} as User;
   userToChat = {} as User;
   private AuthService = inject(AuthService);// inject auth service
   private theme = inject(ThemeService); // inject the theme service
 
   ngOnInit() {
-    this.AuthService.getPayLoad()?.subscribe((payload) => { // get user data
-      this.user = payload;
-    })
+
   }
   switchTheme() {
     this.darkMode = !this.darkMode; //change theme

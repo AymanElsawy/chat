@@ -1,26 +1,30 @@
 @if (userToChat.username) {
-  <div class="card bg-sub-bg text-sub">
+<div class="card bg-sub-bg text-sub">
   <div class="card-header">
     <img
       src="assets/images/user.webp"
       class="user-img rounded-5"
       alt="user-img"
     />
-    <strong class="ms-3">{{userToChat.username}}</strong>
+    <strong class="ms-3">{{ userToChat.username }}</strong>
   </div>
   <div class="card-body overflow-scroll">
+    @for (message of messages; track $index) { @if
+    (message.receiver === currentUser._id) {
     <div>
-      <img src="assets/images/user.webp" class="user-img rounded-5" alt="">
-      <p class="d-inline-block ms-1 card-text mb-0">last message</p>
+      <img src="assets/images/user.webp" class="user-img rounded-5" alt="" />
+      <p class="d-inline-block ms-1 card-text mb-0">{{ message.text }}</p>
       <!-- <small class="text-muted">time</small> -->
     </div>
+    }@else {
     <div class="text-end">
-      <p class="d-inline-block me-1 card-text mb-0">last message</p>
-       <img src="assets/images/user.webp" class="user-img rounded-5" alt="">
+      <p class="d-inline-block me-1 card-text mb-0">{{ message.text }}</p>
+      <img src="assets/images/user.webp" class="user-img rounded-5" alt="" />
     </div>
+    } }
   </div>
   <div class="card-footer text-body-secondary">
-    <form action="">
+    <form (ngSubmit)="sendMessage()">
       <input
         type="text"
         class="form-control"
@@ -28,12 +32,16 @@
         id=""
         aria-describedby="helpId"
         placeholder=""
+        [(ngModel)]="message"
+        [ngModelOptions]="{ standalone: true }"
       />
-      <button class="btn btn-main mt-2 text-end">Send</button>
+      <button class="btn btn-main mt-2 text-end" [disabled]="!message">
+        Send
+      </button>
     </form>
   </div>
 </div>
 
 }@else {
-  <p>start chat</p>
+<p>start chat</p>
 }

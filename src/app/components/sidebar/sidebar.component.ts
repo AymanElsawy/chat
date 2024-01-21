@@ -13,7 +13,7 @@ import { User } from '../../model/user.interface';
 })
 export class SidebarComponent {
 
-  @Input('name') name!: string; // name of the user
+  currentUser: User = {} as User;
   users!: User[];
   @Output('user') user = new EventEmitter<User>();
 
@@ -22,8 +22,12 @@ export class SidebarComponent {
 
 
   ngOnInit() {
+    this.AuthService.getPayLoad()?.subscribe((payload) => { // get user data
+      this.currentUser = payload;
+    })
     this.AuthService.getAllUsers().subscribe((users) => {
-      this.users = users;
+      this.users = users.filter((user) => user._id !== this.currentUser._id); // get all users except the current user
+
     })
   }
 
