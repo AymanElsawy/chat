@@ -8,7 +8,7 @@
     />
     <strong class="ms-3 text-sub">{{ userToChat.username }}</strong>
   </div>
-  <div class="card-body overflow-scroll">
+  <div class="card-body chat overflow-scroll">
     @for (message of messages; track $index) { @if
     (message.receiver === currentUser._id) {
     <div>

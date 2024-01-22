@@ -7,3 +7,6 @@
 .card-body {
   height: 80vh;
 }
+.chat::-webkit-scrollbar {
+  display: none;
+}

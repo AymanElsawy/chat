@@ -5,6 +5,7 @@ import { ChatComponent } from '../chat/chat.component';
 import { ThemeService } from '../../services/theme.service';
 import { User } from '../../model/user.interface';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -24,6 +25,14 @@ export class HomeComponent implements OnInit {
   switchTheme() {
     this.darkMode = !this.darkMode; //change theme
     this.theme.current === 'light' ? this.theme.current = 'dark' : this.theme.current = 'light'; // switch theme
+  }
+
+  toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar) {
+      sidebar.classList.toggle('d-none');
+      sidebar.classList.toggle('active');
+    }
   }
 
   logout() {

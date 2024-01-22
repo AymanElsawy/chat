@@ -1,0 +1,10 @@
+#sidebar.active {
+  position: absolute;
+  z-index: 2;
+  opacity: 1;
+}
+
+.menu {
+  position: fixed;
+  z-index: 3;
+}
