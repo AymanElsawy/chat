@@ -4,12 +4,13 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { ChatComponent } from '../chat/chat.component';
 import { ThemeService } from '../../services/theme.service';
 import { User } from '../../model/user.interface';
+import { CloseSidebarDirective } from '../../directive/close-sidebar.directive';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SidebarComponent, ChatComponent],
+  imports: [SidebarComponent, ChatComponent,CloseSidebarDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

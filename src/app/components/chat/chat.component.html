@@ -8,20 +8,22 @@
     />
     <strong class="ms-3 text-sub">{{ userToChat.username }}</strong>
   </div>
-  <div class="card-body chat overflow-scroll">
+  <div class="card-body chat-body overflow-scroll" #chatBody>
     @for (message of messages; track $index) { @if
     (message.receiver === currentUser._id) {
-    <div>
+    <div class="mt-2">
       <img src="assets/images/user.webp" class="user-img rounded-5" alt="" />
-      <p class="d-inline-block ms-1 card-text mb-0 =">{{ message.text }}</p>
+      <p class="d-inline-block ms-1 card-text mb-0 lead fw-bold">{{ message.text }}</p>
       <!-- <small class="text-muted">time</small> -->
     </div>
     }@else {
-    <div class="text-end">
-      <p class="d-inline-block me-1 card-text mb-0 text-sub">{{ message.text }}</p>
+    <div class="text-end mt-2">
+      <p class="d-inline-block me-1 card-text mb-0 lead fw-bold text-sub">{{ message.text }}</p>
       <img src="assets/images/user.webp" class="user-img rounded-5" alt="" />
     </div>
-    } }
+    } }@empty {
+    <h1 class="text-center text-sub-bg text-capitalize mt-5">no messages yet</h1>
+    }
   </div>
   <div class="card-footer text-body-secondary">
     <form (ngSubmit)="sendMessage()">
@@ -43,5 +45,5 @@
 </div>
 
 }@else {
-<p>start chat</p>
+  <h1 class="text-center text-sub-bg text-capitalize mt-5">select a user to chat</h1>
 }

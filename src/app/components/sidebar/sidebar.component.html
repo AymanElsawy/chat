@@ -1,6 +1,6 @@
 <div class="vh-100 overflow-scroll bg-sub-bg text-sub sidebar">
   <h4 class="text-center m-3 fw-bold text-capitalize">chats</h4>
-  <h3 class="text-center">{{currentUser.username}}</h3>
+  <h3 class="text-center">{{ currentUser.username }}</h3>
   <div class="text-center p-3">
     <label for="user" class="form-label text-capitalize">search for user</label>
     <input
@@ -10,15 +10,31 @@
       id="user"
       aria-describedby="helpId"
       placeholder="@user"
+      [(ngModel)]="userSearch"
     />
   </div>
- @for (user of users; track user._id) {
-   <div class="mt-3 d-flex justify-content-start align-items-center" (click)="chatWithUser(user)">
+  @for (user of users | search:userSearch; track user._id) { @if (user._id !==
+  currentUser._id) {
+  <div
+    class="mt-3 d-flex justify-content-start align-items-center"
+    (click)="chatWithUser(user)"
+  >
     <img src="assets/images/user.webp" class="ms-4 user-img rounded-5" alt="" />
     <div class="d-flex flex-column ms-4">
-      <h6 class="text-capitalize fw-bold fw-light mb-0">{{user.username}}</h6>
-      <small class="mt-0">last message</small>
+      <h6 class="text-capitalize fw-bold fw-light mb-0">{{ user.username }}</h6>
+      <!-- @for (item of currentUser.conversations; track $index) {
+      @if(item.receiverId === user._id) { @if
+      (item.messageId.messages[item.messageId.messages.length - 1].receiver !==
+      currentUser._id) {
+      <small class="mt-0 text-truncate"
+        >You : {{
+          item.messageId.messages[item.messageId.messages.length - 1].text
+        }}</small
+      >
+      } } } -->
     </div>
   </div>
- }
+  } } @empty {
+  <div class="text-center mt-3 text-capitalize">no user found</div>
+  }
 </div>

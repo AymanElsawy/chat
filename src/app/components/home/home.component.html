@@ -1,37 +1,36 @@
-<div class="row">
-  <div class="col-auto p-0 d-none d-sm-block" id="sidebar" appCloseMenu>
+<div class="row" >
+  <i (click)="toggleSidebar()" class="text-main menu d-block d-sm-none" >
+    <svg
+      width="30px"
+      height="30px"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      stroke="#000000"
+      transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke="#CCCCCC"
+        stroke-width="0.04"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          fill="#000000"
+          fill-rule="evenodd"
+          d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z"
+        ></path>
+      </g>
+    </svg>
+  </i>
+  <div class="col-auto p-0 d-none d-sm-block" id="sidebar" appCloseSidebar>
     <app-sidebar (user)="chatWithUser($event)"></app-sidebar>
   </div>
-  <div class="col bg-main-bg text-main vh-100 w-100 ps-1">
-    <div class="mt-1 ms-2 d-block d-sm-none">
-      <i (click)="toggleSidebar()" class="text-main menu">
-        <svg
-          width="30px"
-          height="30px"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          stroke="#000000"
-          transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)"
-        >
-          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-          <g
-            id="SVGRepo_tracerCarrier"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke="#CCCCCC"
-            stroke-width="0.04"
-          ></g>
-          <g id="SVGRepo_iconCarrier">
-            <path
-              fill="#000000"
-              fill-rule="evenodd"
-              d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z"
-            ></path>
-          </g>
-        </svg>
-      </i>
-    </div>
+  <div class="col bg-main-bg text-main vh-100 w-100 ps-1" >
+    <div class="mt-1 ms-2 d-block d-sm-none"></div>
     <div class="mt-1 me-2 text-end">
       <button class="btn btn-main" (click)="logout()">logout</button>
     </div>
