@@ -5,3 +5,6 @@
 .sidebar::-webkit-scrollbar {
   display: none;
 }
+.user-card-details{
+  cursor: pointer;
+}

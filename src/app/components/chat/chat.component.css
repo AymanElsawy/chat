@@ -2,10 +2,10 @@
   width: 50px;
 }
 .card {
-  height: 90vh;
+  height: 80vh;
 }
 .card-body {
-  height: 80vh;
+  height: 75vh;
 }
 .chat-body::-webkit-scrollbar {
   display: none;

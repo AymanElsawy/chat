@@ -5,10 +5,12 @@ export interface User {
   createdAt: string;
   updatedAt: string;
   __v: number;
+  friends: any[];
+  friendRequests: any[];
 }
 
-export interface Conversation {
-  receiverId: string;
+interface Conversation {
+  receiverId: User;
   messageId: MessageId;
   _id: string;
 }
